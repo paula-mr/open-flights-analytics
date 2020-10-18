@@ -1,23 +1,8 @@
 version: "3.8"
 services:
   # Pentaho BI
-  pentaho:
-      container_name: pentaho
-      image: ca0abinary/docker-pentaho
-      depends_on:
-          - pentaho-pg
-      ports:
-          - "8080:8080"
-      environment:
-          - HOST=pentaho-pg
-          - USER=pentaho
-          - PASSWORD=password
-
-  # PostgreSQL Database for Pentaho BI
-  pentaho-pg:
-      container_name: pentaho-pg
-      image: postgres:9.4
-      environment:
-          - POSTGRES_USER=pentaho
-          - POSTGRES_PASSWORD=password
-          - PGDATA=/var/lib/postgresql/data/pgdata
+    pentaho:
+        container_name: pentaho
+        image: wmarinho/pentaho
+        ports:
+            - "8080:8080"
