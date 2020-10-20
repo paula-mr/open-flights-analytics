@@ -10,7 +10,8 @@ services:
       - POSTGRES_DB=openflights
     volumes:
       - ./app_data/postgres:/var/lib/postgresql/data/
-      - ./routes.sql:/docker-entrypoint-initdb.d/routes.sql
+      - ./data/routes.sql:/docker-entrypoint-initdb.d/routes.sql
+      - ./data/routes.csv:/routes.csv
 
 volumes:
   postgres_data:
