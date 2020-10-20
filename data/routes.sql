@@ -1,13 +1,13 @@
 CREATE TABLE routes (
-  airline VARCHAR(255),
-  airline_id VARCHAR(255),
-  source_airport VARCHAR(255),
-  source_airport_id VARCHAR(255),
-  destination_airport VARCHAR(255),
-  destination_airport_id VARCHAR(255),
-  codeshare VARCHAR(255),
-  stops VARCHAR(255),
-  equipment VARCHAR(255)
+  airline VARCHAR(3),
+  airline_id bigint,
+  source_airport VARCHAR(72),
+  source_airport_id bigint,
+  destination_airport VARCHAR(72),
+  destination_airport_id bigint,
+  codeshare VARCHAR(1),
+  stops bigint,
+  equipment VARCHAR(100)
 );
 
 COPY routes(airline, airline_id, source_airport, source_airport_id, destination_airport, destination_airport_id, codeshare, stops, equipment)
