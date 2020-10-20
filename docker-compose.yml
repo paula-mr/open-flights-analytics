@@ -1,11 +1,17 @@
 version: "3.8"
 services:
   db:
-    image: postgres:latest
+    image: postgres
     ports:
       - 5432:5432
-    env_file: 
-      - ./.env
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=openflights
     volumes:
+      - ./app_data/postgres:/var/lib/postgresql/data/
       - ./routes.sql:/docker-entrypoint-initdb.d/routes.sql
-      - "./routes.csv:/var/lib/postgresql/data/pgdata"
+
+volumes:
+  postgres_data:
+  app_data:
