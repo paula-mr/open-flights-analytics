@@ -1,8 +1,11 @@
 version: "3.8"
 services:
-  # Pentaho BI
-    pentaho:
-        container_name: pentaho
-        image: wmarinho/pentaho
-        ports:
-            - "8080:8080"
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    env_file: 
+      - ./.env
+    volumes:
+      - ./routes.sql:/docker-entrypoint-initdb.d/routes.sql
+      - "./routes.csv:/var/lib/postgresql/data/pgdata"
