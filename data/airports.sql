@@ -1,5 +1,5 @@
 CREATE TABLE airports (
-    airport_id bigint NOT NULL,
+    airport_id bigint PRIMARY KEY,
     name VARCHAR(72),
     city VARCHAR(33),
     country VARCHAR(32),

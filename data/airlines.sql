@@ -1,5 +1,5 @@
 CREATE TABLE airlines (
-    airline_id bigint NOT NULL,
+    airline_id bigint PRIMARY KEY,
     name VARCHAR(100),
     alias VARCHAR(50),
     iata_code VARCHAR(5),
