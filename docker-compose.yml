@@ -10,14 +10,14 @@ services:
       - POSTGRES_DB=openflights
     volumes:
       - ./app_data/postgres:/var/lib/postgresql/data/
-      - ./data/routes.sql:/docker-entrypoint-initdb.d/routes.sql
-      - ./data/routes-treated.csv:/routes-treated.csv
-      - ./data/airlines.sql:/docker-entrypoint-initdb.d/airlines.sql
+      - ./data/1-planes.sql:/docker-entrypoint-initdb.d/1-planes.sql
+      - ./data/2-insert-planes.sql:/docker-entrypoint-initdb.d/2-insert-planes.sql
+      - ./data/3-airlines.sql:/docker-entrypoint-initdb.d/3-airlines.sql
+      - ./data/4-airports.sql:/docker-entrypoint-initdb.d/4-airports.sql
+      - ./data/5-routes.sql:/docker-entrypoint-initdb.d/5-routes.sql
+      - ./data/6-insert-routes.sql:/docker-entrypoint-initdb.d/6-insert-routes.sql
       - ./data/airlines.csv:/airlines.csv
-      - ./data/airports.sql:/docker-entrypoint-initdb.d/airports.sql
       - ./data/airports.csv:/airports.csv
-      - ./data/planes.sql:/docker-entrypoint-initdb.d/planes.sql
-      - ./data/planes.csv:/planes.csv
 
 volumes:
   postgres_data:
