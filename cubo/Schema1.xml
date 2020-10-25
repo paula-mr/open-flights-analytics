@@ -1,0 +1,42 @@
+<Schema name="New Schema1">
+  <Cube name="Cubo" visible="true" cache="true" enabled="true">
+    <Table name="routes">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="source_airport_id" highCardinality="false" name="dim_source_airport">
+      <Hierarchy name="hierarchy" visible="true" hasAll="true" primaryKey="airport_id">
+        <Table name="airports">
+        </Table>
+        <Level name="name_airport" visible="true" column="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="name_airport" column="name" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="destination_airport_id" highCardinality="false" name="dim_destination_airport">
+      <Hierarchy name="hierarchy" visible="true" hasAll="true" primaryKey="airport_id">
+        <Table name="airports">
+        </Table>
+        <Level name="name_airport" visible="true" column="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="airline_id" name="dim_airline">
+      <Hierarchy name="hierarchy" visible="true" hasAll="true" primaryKey="airline_id">
+        <Table name="airlines" alias="">
+        </Table>
+        <Level name="name_airline" visible="true" column="name" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="equipment" name="dim_equipment">
+      <Hierarchy name="hierarchy" visible="true" hasAll="true" primaryKey="iso_code">
+        <Table name="planes">
+        </Table>
+        <Level name="hierarchy" visible="true" column="iso_code" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="meas_source_airport" column="source_airport" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
